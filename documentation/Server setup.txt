@@ -1,0 +1,24 @@
+Server provider: Linode
+Server specifications:
+ - Region: Frankfurt, DE
+ - 4GB RAM
+ - 80GB HDD space
+ - IP address: 139.177.182.18
+ - Image: Ubuntu 20.04 LTS
+ 
+ Commands used for initial setup:
+ apt update
+ apt upgrade
+ dpkg-reconfigure --priority=low unattended-upgrades
+ 
+ #Adding users and adding them to sudo group
+ adduser gasper
+ adduser tomaz
+ usermod -aG sudo gasper
+ usermod -aG sudo tomaz
+ sudo nano /etc/ssh/sshd_config #Disabled root login
+ sudo systemctl restart sshd #Restarted ssh
+ sudo apt install ufw
+ 
+ #Installed docker, nodejs, mysql, angular, configured mysql, tested angular (by visiting 139.177.182.18:8080 in Chrome)
+ 
