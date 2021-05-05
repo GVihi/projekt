@@ -1,11 +1,15 @@
-# PROJECT V&V
+# **PROJECT V&V**
 
-## RAIN
+## **RAIN**
 
-## ORV
+### FRONTEND
 
-## SA
+### BACKEND
 
-## NPO
+## **ORV**
+
+## **SA**
+
+## **NPO**
 
 Contributers: GVihi (Gašper Viher), TomazVidovic533 (Tomaž Vidovič)
