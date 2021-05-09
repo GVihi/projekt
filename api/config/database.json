@@ -1,0 +1,7 @@
+{
+    "host": "139.177.182.18",
+    "user": "node",
+    "port": 3306,
+    "database": "peDatabase",
+    "password": "Password1!"
+}
