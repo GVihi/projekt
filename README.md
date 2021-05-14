@@ -9,11 +9,16 @@ Spletna aplikacija je demonstracija "reverse image" iskanja podobnih slik s pomo
 ### BACKEND
 - Registracija
 - Prijava
+- Pridobivanje slik z Pixabay API-ja
+- Nalaganje slik
+- Pridobivanje podatkov slik
 
 ## **ORV**
+- Povezava NodeJs in Pythona za izvajanje algoritmov
 
 ## **SA**
 - Skripta za postavitev in namestitev vseh potrebnih paketov na strežniku.
+- Skripti za avtomatsko ustvarjanje varnostnih kopij, ena tudi za ročno ustvarjanje (sproži preko admin vloge)
 
 ## **NPO**
 
