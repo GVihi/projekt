@@ -30,7 +30,7 @@ exports.authenticateToken = async (req, res, next) => {
     const token = req.header('accessToken');
     if (token == null) return res.sendStatus(401)
     jwt.verify(token, process.env.accessKey, (err, token) => {
-        if (err.name) return res.sendStatus(403)
+        if (err) return res.sendStatus(403)
         next();
     })
 }

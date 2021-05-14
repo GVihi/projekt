@@ -92,7 +92,7 @@ exports.generateAccessToken = async (req, res, next) => {
     await jwtMiddleware.validateToken(refreshToken);
 
     // we return new access token
-    res.status(200).header('access-token', await jwtMiddleware.generateNewAccessToken(decoded)).json();
+    res.status(200).header('access-token', await jwtMiddleware.generateNewAccessToken(refreshToken)).json();
 }
 
 
