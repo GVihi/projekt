@@ -1,0 +1,1 @@
+rdiff-backup /home/projekt/api/uploads /home/projekt/backups/photo-backup/
