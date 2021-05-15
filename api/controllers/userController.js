@@ -96,6 +96,7 @@ exports.generateAccessToken = async (req, res, next) => {
 }
 
 
+
  // const decoded = jwt.decode(refreshToken);
     // if (await jwtMiddleware.validateRefreshTokenExpirationDate(decoded)) res.sendStatus(401);
 

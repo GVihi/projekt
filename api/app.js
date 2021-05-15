@@ -24,7 +24,9 @@ app.use(function (req, res, next) {
 
 const usersRoutes = require('./routes/userRoutes');
 const photosRoutes = require('./routes/photoRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 app.use('/users', usersRoutes);
+app.use('/admin', adminRoutes);
 app.use('/photos', photosRoutes);
 
 
