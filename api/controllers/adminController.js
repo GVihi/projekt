@@ -2,6 +2,7 @@ const Photo = require('../models/photoModel');
 const axios = require('axios');
 const download = require('image-downloader');
 const { userInfo } = require('os');
+const { spawn } = require("child_process");
 const User = require('./../models/userModel');
 
 exports.downloadPhotosAPI = async (req, res, next) => {
@@ -93,4 +94,28 @@ exports.updateUser = async (req, res, next) => {
         if (err) console.log("Error while updating"); res.json("Error while updating");
     })
     res.json("Updated.")
+}
+
+exports.createPhotosBackup = async (req, res, next) => {
+
+    const photosBackupExec = spawn("./../server-scripts/photos-instant-backup.sh", [""]);
+
+    photosBackupExec.stdout.on("data", data => {
+        console.log(`Output: ${data}`);
+    });
+
+    photosBackupExec.stderr.on("data", data => {
+        console.log(`Data: ${data}`);
+    });
+
+    photosBackupExec.on('error', (error) => {
+        console.log(`Error: ${error.message}`);
+        res.json("Error creating backup." + error.message);
+    });
+
+    photosBackupExec.on("close", code => {
+        console.log(`Porcess finished with code ${code}`);
+        res.json("Backup created");
+    });
+
 }

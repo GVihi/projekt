@@ -1,6 +1,5 @@
 const Photo = require('../models/photoModel');
-const axios = require('axios');
-const fs = require('fs');
+
 
 exports.uploadPhoto = async (req, res, next) => {
     const photoData = {
@@ -13,9 +12,7 @@ exports.uploadPhoto = async (req, res, next) => {
     }).catch((err) => {
         res.json(err);
     })
-
 }
-
 
 exports.getPhotos = async (req, res, next) => {
     const photos = await Photo.fetchPhotos().catch((err) => {
