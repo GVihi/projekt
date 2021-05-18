@@ -1,0 +1,10 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 0.3fr 1.1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "sidenav main-content";
+  }
+  .main-content { grid-area: main-content; }
+  .sidenav { grid-area: sidenav; }
