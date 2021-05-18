@@ -26,8 +26,8 @@
       margin-top: 250px;
   }
 
-  td{
-      align-self: center;
+  tr{
+      align-content: center;
   }
 
   .bgRounded{
@@ -40,4 +40,5 @@
     background: #DCDFFF;
     padding: 25px;
     border-radius: 25px;
+    opacity: 1;
 }
