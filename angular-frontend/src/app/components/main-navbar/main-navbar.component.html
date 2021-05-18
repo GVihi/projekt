@@ -1,19 +1,22 @@
-<mat-toolbar color="secondary">
-    <button [ngClass]="'test'" routerLink="/home" mat-icon-button class="example-icon"
+<mat-toolbar color="primary">
+    <button routerLink="/home" mat-icon-button class="example-icon"
         aria-label="Example icon-button with menu icon">
         Home
     </button>
     <button routerLink="/photos" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
         Photos
     </button>
+    <span class="example-spacer"></span>
     <form class="example-form">
         <mat-form-field class="example-full-width">
-          <mat-label>Search</mat-label>
           <input matInput>
         </mat-form-field>
     </form>
     <button mat-icon-button>Search</button>
-    <button routerLink="/sign-in" *ngIf="!loggedIn" mat-icon-button>Sign in</button>
+
+    <span class="example-spacer"></span>
+    <button class="" routerLink="/sign-in" *ngIf="!loggedIn" mat-icon-button>Sign in</button>
     <button routerLink="/sign-up" *ngIf="!loggedIn" mat-icon-button>Sign up</button>
     <button routerLink="" *ngIf="loggedIn" mat-icon-button>Sign out</button>
+    
 </mat-toolbar>

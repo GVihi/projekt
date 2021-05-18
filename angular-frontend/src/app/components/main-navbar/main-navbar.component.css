@@ -3,7 +3,10 @@
 }
 
 button{
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 input{
@@ -19,4 +22,17 @@ input{
   
   .example-full-width {
     width: 100%;
+  }
+
+  .rightAlign{
+      float: right;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .bgRounded{
+      background-color: #EE04E0;
+      border-radius: 25px;
   }

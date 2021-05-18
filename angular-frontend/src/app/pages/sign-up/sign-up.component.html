@@ -1,13 +1,29 @@
-<div class="signindiv">
+<div class="signindiv container">
     <table>
         <tr>
             <td>
     <mat-form-field appearance="fill">
-        <mat-label>Username</mat-label>
+        <mat-label>Nickname</mat-label>
         <input matInput required>
       </mat-form-field>
     </td>
     </tr>
+    <tr>
+        <td>
+<mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput required>
+  </mat-form-field>
+</td>
+</tr>
+<tr>
+    <td>
+<mat-form-field appearance="fill">
+<mat-label>Age</mat-label>
+<input type="number" matInput required>
+</mat-form-field>
+</td>
+</tr>
 
     <tr>
         <td>
@@ -31,7 +47,9 @@
     </tr>
     <tr>
         <td>
+            <div class="bgRounded">
             <button mat-icon-button>Sign up</button>
+        </div>
         </td>
     </tr>
     </table>
