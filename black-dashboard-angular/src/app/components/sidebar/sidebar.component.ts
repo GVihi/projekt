@@ -49,6 +49,13 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "ار تي ال",
     icon: "icon-badge",
     class: ""
+  },
+  {
+    path: "/register",
+    title: "Register",
+    rtlTitle: "ار تي ال",
+    icon: "icon-credit-card",
+    class: ""
   }
 ];
 

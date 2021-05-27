@@ -10,7 +10,7 @@ import { ReverseSearchComponent } from "./pages/reverse-search/reverse-search.co
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "dashboard",
+    redirectTo: "reverse-search",
     pathMatch: "full"
   },
   {

@@ -13,6 +13,7 @@ import { LoginComponent } from "../../pages/login/login.component";
 import { MyPhotosComponent } from "../../pages/my-photos/my-photos.component";
 import { PhotosComponent } from "../../pages/photos/photos.component";
 import { ProfileComponent } from "../../pages/profile/profile.component";
+import { RegisterComponent } from "../../pages/register/register.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -28,6 +29,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "my-photos", component: MyPhotosComponent },
   { path: "photos", component: PhotosComponent },
-  { path: "profile", component: ProfileComponent }
+  { path: "profile", component: ProfileComponent },
+  { path: "register", component: RegisterComponent }
   // { path: "rtl", component: RtlComponent }
 ];
