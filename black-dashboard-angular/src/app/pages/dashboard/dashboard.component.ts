@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import Chart from 'chart.js';
+import {Chart } from 'chart.js';
 
 @Component({
   selector: "app-dashboard",
@@ -427,7 +427,7 @@ export class DashboardComponent implements OnInit {
       },
       options: gradientChartOptionsConfigurationWithTooltipRed
     };
-    this.myChartData = new Chart(this.ctx, config);
+    
 
 
     this.canvas = document.getElementById("CountryChart");
@@ -437,30 +437,6 @@ export class DashboardComponent implements OnInit {
     gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
     gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
-
-
-    var myChart = new Chart(this.ctx, {
-      type: 'bar',
-      responsive: true,
-      legend: {
-        display: false
-      },
-      data: {
-        labels: ['USA', 'GER', 'AUS', 'UK', 'RO', 'BR'],
-        datasets: [{
-          label: "Countries",
-          fill: true,
-          backgroundColor: gradientStroke,
-          hoverBackgroundColor: gradientStroke,
-          borderColor: '#1f8ef1',
-          borderWidth: 2,
-          borderDash: [],
-          borderDashOffset: 0.0,
-          data: [53, 20, 10, 80, 100, 45],
-        }]
-      },
-      options: gradientBarChartConfiguration
-    });
 
   }
   public updateOptions() {

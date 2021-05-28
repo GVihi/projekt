@@ -26,6 +26,7 @@ import { MyPhotosComponent } from './pages/my-photos/my-photos.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { DetailPhotoComponent } from './pages/detail-photo/detail-photo.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { RegisterComponent } from './pages/register/register.component';
     MyPhotosComponent,
     AdminComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DetailPhotoComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

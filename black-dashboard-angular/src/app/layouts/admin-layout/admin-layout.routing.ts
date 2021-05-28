@@ -14,6 +14,7 @@ import { MyPhotosComponent } from "../../pages/my-photos/my-photos.component";
 import { PhotosComponent } from "../../pages/photos/photos.component";
 import { ProfileComponent } from "../../pages/profile/profile.component";
 import { RegisterComponent } from "../../pages/register/register.component";
+import { DetailPhotoComponent } from "../../pages/detail-photo/detail-photo.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -30,6 +31,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "my-photos", component: MyPhotosComponent },
   { path: "photos", component: PhotosComponent },
   { path: "profile", component: ProfileComponent },
-  { path: "register", component: RegisterComponent }
+  { path: "register", component: RegisterComponent },
+  { path: "detail-photo", component: DetailPhotoComponent }
   // { path: "rtl", component: RtlComponent }
 ];
