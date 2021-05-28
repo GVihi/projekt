@@ -32,5 +32,5 @@ router.post('/', upload.single('file'), photoController.uploadPhoto);
 router.get('/', photoController.getPhotos);
 router.get('/:photoId', photoController.getPhotoData);
 
-
+router.post('/:photoId/comment/:userId', photoController.commentPhoto);
 module.exports = router;

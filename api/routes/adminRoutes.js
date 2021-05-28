@@ -10,6 +10,8 @@ router.get('/create-backup-photos', adminController.createPhotosBackup)
 router.delete('/delete-user/:id', adminController.deleteUser);
 router.put('/update-user/:id', adminController.updateUser);
 
+// changepriviliges ->_userid, idpriviliege 
+// v modeli še fetch all privliges
 
 
 module.exports = router;

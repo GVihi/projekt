@@ -29,6 +29,27 @@ exports.getPhotoData = async (req, res, next) => {
 }
 
 
-exports.getsPhotosFromAPI = async (req, res, next) => {
-    res.send("200")
+// comment insert
+// comment photo -> userid, photoId
+// prvo comment insrtComment v model
+// insertComemntPhoto Relation 
+
+// izpis vseh slik dolocenegea uporabnika
+
+// izpis vseh commentov za sliko
+
+exports.commentPhoto = async (req, res, next) => {
+
+    const comment = {
+        userId: req.params.userId,
+        comment: req.body.comment,
+    }
+    console.log(comment)
+
+    await Photo.insertComment(comment).then(async (result) => {
+        await Photo.insertCommentPhotoRelation(req.params.photoId, result[0].insertId).then(async (err, response) => {
+            res.json("Comment inserted.")
+        })
+    })
+
 }

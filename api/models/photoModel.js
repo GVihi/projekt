@@ -61,5 +61,23 @@ exports.fetchPhotos = async () => {
 }
 
 exports.fetchPhotoData = async (photoId) => {
+    // vrni commente in tagge , ki so povezani z sliko
     return databaseConnection.query('SELECT * FROM pePhotos WHERE idPhoto = ?', [photoId]);
+}
+
+exports.insertComment = async (data) => {
+    return new Promise((resolve, reject) => {
+        const query = databaseConnection.query('INSERT INTO peComments (userId, comment, date) VALUES (?,?,now())', [data.userId, data.comment], (err) => {
+            if (err) reject(err)
+        });
+        resolve(query);
+    });
+}
+
+exports.insertCommentPhotoRelation = async (photoId, commentId) => {
+    return new Promise((resolve, reject) => {
+        const query = databaseConnection.query('INSERT INTO pePhotoComments (photoId, commentId) VALUES (?,?);',
+            [photoId, commentId]);
+        resolve(query);
+    });
 }
