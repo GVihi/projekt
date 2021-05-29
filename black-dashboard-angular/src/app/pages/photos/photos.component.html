@@ -1,183 +1,36 @@
-
 <div class=" content">
-    <div class=" row">
-      <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-body">
-            <h3>Photos</h3>
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-body">
+          <h3>Photos</h3>
 
 
-            <div class="container">
+          <div class="container">
 
-              <div class="row">
-                <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;">
-                <img class="card-img-top" src="../../../assets/img/bg5.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div *ngFor="let photo of photos" class="row">
+              <div class="card mb-3 card-bgc" style="max-width: 1080px; max-height: 1920px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <a routerLink="/detail-photo/{{photo.idPhoto}}"><img [src]=photo.path></a>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{photo.title}}</h5>
+                      <p class="card-text">{{photo.path}}}}</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
+                        <li class="list-group-item">Date: <b><i>{{photo.date}}</i></b></li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/Landscape-Color.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/Img2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            </div>
-
-              <div class="row">
-                <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/Img3.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/Img4.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/Img5.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            </div>
-
-              <div class="row">
-                <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/Img6.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/Img7.png" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card floaty-left card-bgc" style="width: 18rem;  ">
-                <img class="card-img-top" src="../../../assets/img/bg5.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h3 class="card-title">Card title</h3>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Uploaded by: <b><i>Jon Doe</i></b></li>
-                  <li class="list-group-item">Uploaded: <b><i>28-05-2021</i></b></li>
-                </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">View details</a>
-                  <a href="#" class="card-link">Comment</a>
-                </div>
-              </div>
-            </div>
             </div>
 
 
-            </div>
-
-            
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
