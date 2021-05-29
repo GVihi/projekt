@@ -16,4 +16,16 @@ export class AdminService {
   public getUsers(): Observable<UserItem[]> {
     return this.http.get<UserItem[]>(AdminService.hostUsers + "get-users");
   }
+
+  public deleteSpecificUser(userId: Number): Observable<any>{
+    return this.http.delete(AdminService.hostAdmin + `/delete-user/${userId}`);
+  }
+
+  public getUser(userId: Number): Observable<UserItem> {
+    return this.http.get<UserItem>(AdminService.hostUsers + `/get-user/${userId}`);
+  }
+
+  public backupPhotos(): Observable<any> {
+    return this.http.get(AdminService.hostAdmin + "/create-backup-photos");
+  }
 }

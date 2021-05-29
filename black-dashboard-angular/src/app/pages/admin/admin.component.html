@@ -4,8 +4,14 @@
       <div class=" card">
         <div class=" card-body">
           <h3>Administration</h3>
+          <mat-tab-group>
+
+            <mat-tab label="Users">
+              <ng-template mat-tab-label>
+                <span style="color: white">Users</span>
+              </ng-template>
           <div>
-            <div class="table-wrapper">
+            <div class="table-wrapper" style="overflow: hidden;">
               <div class="table-title">
                 <div class="row">
                   <div class="col-xs-6 mx-auto">
@@ -31,18 +37,38 @@
                     <td>{{user.email}}</td>
                     <td>{{user.age}}</td>
                     <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
+                      <a href="javascript:void(0);" class="edit" data-toggle="modal"><i class="material-icons"
                           data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="139.177.182.18:8000/admin/delete-user/{{user.idUser}}" class="delete" data-toggle="modal"><i class="material-icons"
+                      <a href="javascript:void(0);" (click)="deleteUser(user.idUser)" class="delete" data-toggle="modal"><i class="material-icons"
                           data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                   </tr>
-                  
 
                 </tbody>
               </table>
             </div>
           </div>
+        </mat-tab>
+
+        <mat-tab label="Backup">
+          <ng-template mat-tab-label>
+            <span style="color: white">Backup</span>
+          </ng-template>
+          <div class="table-title" style="overflow: hidden;">
+            <div class="row">
+              <div class="col-xs-6 mx-auto">
+                <h2> Manage Backups </h2>
+              </div>
+            </div>
+          </div>
+          <div style="margin: 25px">
+            <button (click)="createBackupOfPhotos()" type="button" id="backupButton" class="btn btn-info">Backup all photos</button>
+            <br> <br>
+            <label for="backupButton">Click this button to backup all photos on the server</label>
+          </div>
+        </mat-tab>
+
+        </mat-tab-group>
         </div>
       </div>
     </div>
