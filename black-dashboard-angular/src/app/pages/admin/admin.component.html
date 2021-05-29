@@ -16,254 +16,28 @@
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th>ID</th>
+                    <th>Nickname</th>
+                    <th>Username</th>
                     <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Actions</th>
+                    <th>Age</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Thomas Hardy</td>
-                    <td>thomashardy@mail.com</td>
-                    <td>89 Chiaroscuro Rd, Portland, USA</td>
-                    <td>(171) 555-2222</td>
+                  <tr *ngFor="let user of users">
+                    <td>{{user.idUser}}</td>
+                    <td>{{user.nickname}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.age}}</td>
                     <td>
                       <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
                           data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
+                      <a href="139.177.182.18:8000/admin/delete-user/{{user.idUser}}" class="delete" data-toggle="modal"><i class="material-icons"
                           data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                     </td>
                   </tr>
-                  <tr>
-                    <td>Bevis Fernandez</td>
-                    <td>neque@ultricesVivamusrhoncus.ca</td>
-                    <td>P.O. Box 474, 2741 Mauris. St.</td>
-                    <td>07624 519557</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Blake Brewer</td>
-                    <td>Nam.consequat.dolor@loremsitamet.net</td>
-                    <td>P.O. Box 859, 1598 Ut Av.</td>
-                    <td>(0113) 566 9536</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Lamar Vinson</td>
-                    <td>commodo@diamPellentesque.org</td>
-                    <td>Ap #886-2572 Euismod Av.</td>
-                    <td>0845 46 47</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Joshua Ford</td>
-                    <td>Donec.sollicitudin@ipsumacmi.ca</td>
-                    <td>Ap #551-9250 At Road</td>
-                    <td>(01491) 765926</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Herman Henson</td>
-                    <td>penatibus@Inmipede.co.uk</td>
-                    <td>829-1431 Luctus St.</td>
-                    <td>(016977) 0792</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Caesar Fuentes</td>
-                    <td>sed@ornarelectusante.co.uk</td>
-                    <td>837-2106 Donec Avenue</td>
-                    <td>056 9875 1054</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Aquila Green</td>
-                    <td>iaculis@congue.ca</td>
-                    <td>2117 Magna Rd.</td>
-                    <td>07299 448214</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Quinlan Franco</td>
-                    <td>neque@nec.org</td>
-                    <td>Ap #438-1527 Sit Ave</td>
-                    <td>0943 303 5128</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Quentin Montgomery</td>
-                    <td>auctor.vitae.aliquet@dignissimMaecenas.net</td>
-                    <td>474-3927 Orci Road</td>
-                    <td>056 1214 8384</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Thomas Hardy</td>
-                    <td>thomashardy@mail.com</td>
-                    <td>89 Chiaroscuro Rd, Portland, USA</td>
-                    <td>(171) 555-2222</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Bevis Fernandez</td>
-                    <td>neque@ultricesVivamusrhoncus.ca</td>
-                    <td>P.O. Box 474, 2741 Mauris. St.</td>
-                    <td>07624 519557</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Blake Brewer</td>
-                    <td>Nam.consequat.dolor@loremsitamet.net</td>
-                    <td>P.O. Box 859, 1598 Ut Av.</td>
-                    <td>(0113) 566 9536</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Lamar Vinson</td>
-                    <td>commodo@diamPellentesque.org</td>
-                    <td>Ap #886-2572 Euismod Av.</td>
-                    <td>0845 46 47</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Joshua Ford</td>
-                    <td>Donec.sollicitudin@ipsumacmi.ca</td>
-                    <td>Ap #551-9250 At Road</td>
-                    <td>(01491) 765926</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Herman Henson</td>
-                    <td>penatibus@Inmipede.co.uk</td>
-                    <td>829-1431 Luctus St.</td>
-                    <td>(016977) 0792</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Caesar Fuentes</td>
-                    <td>sed@ornarelectusante.co.uk</td>
-                    <td>837-2106 Donec Avenue</td>
-                    <td>056 9875 1054</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Aquila Green</td>
-                    <td>iaculis@congue.ca</td>
-                    <td>2117 Magna Rd.</td>
-                    <td>07299 448214</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Quinlan Franco</td>
-                    <td>neque@nec.org</td>
-                    <td>Ap #438-1527 Sit Ave</td>
-                    <td>0943 303 5128</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Quentin Montgomery</td>
-                    <td>auctor.vitae.aliquet@dignissimMaecenas.net</td>
-                    <td>474-3927 Orci Road</td>
-                    <td>056 1214 8384</td>
-                    <td>
-                      <a href="#" class="edit" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                      <a href="#" class="delete" data-toggle="modal"><i class="material-icons"
-                          data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-                    </td>
-                  </tr>
+                  
 
                 </tbody>
               </table>
