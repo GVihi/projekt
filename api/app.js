@@ -1,9 +1,10 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = 8000 || process.env;
 const databaseConnection = require('./util/databaseConnection');
-
+const path = require('path');
 var io = require('socket.io-client');
 var socket = io.connect('http://localhost:3001', { reconnect: true });
 
@@ -12,7 +13,8 @@ socket.on('connect', function (socket) {
     console.log('Connected!');
 });
 
-
+app.use("/uploads", express.static("uploads"));
+app.use("/test-file", express.static("test-file"));
 
 app.use(bodyParser.json());
 app.use(cors());
