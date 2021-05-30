@@ -7,7 +7,7 @@ const User = require('./../models/userModel');
 
 exports.downloadPhotosAPI = async (req, res, next) => {
 
-    axios.get('https://pixabay.com/api/?key=21540947-a79c3cf6d3154343ac17cdeb6&per_page=200&category=' + req.body.categoryName)
+    axios.get('https://pixabay.com/api/?key=21540947-a79c3cf6d3154343ac17cdeb6&page=3&per_page=200&category=' + req.body.categoryName)
         .then(async (response) => {
             response.data.hits.forEach(async (element) => {
                 const options = {

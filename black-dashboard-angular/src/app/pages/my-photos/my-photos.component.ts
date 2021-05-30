@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { PhotoService } from 'src/app/services/photo.service';
 import { PhotoItem } from '../../models/photo-item';
 import { MyPhotosService } from 'src/app/services/my-photos.service';
+import { Router } from '@angular/router';
 
 class ImageSnippet {
   pending: boolean = false;
@@ -21,7 +22,7 @@ export class MyPhotosComponent implements OnInit {
   photos: PhotoItem[] = [];
   
 
-  constructor(private photoService: PhotoService, private myPhotosService: MyPhotosService) { }
+  constructor(private photoService: PhotoService, private myPhotosService: MyPhotosService, private router: Router) { }
 
   private onSuccess() {
     this.selectedFile.pending = false;
@@ -61,6 +62,9 @@ export class MyPhotosComponent implements OnInit {
   getPhotos(userId: Number): void {
     this.myPhotosService.getUsersPhotos(userId).subscribe(photos => {
       photos.forEach((photo) => {
+
+        console.log(photo.title + " " + photo.description);
+
         var path = photo.path;
         var splitted = path.split("/");
         let finalPath = "http://139.177.182.18:8000/";
@@ -76,6 +80,10 @@ export class MyPhotosComponent implements OnInit {
 
       })
     });
+  }
+
+  deletePhoto(idPhoto: Number): void {
+    this.photoService.deletePhoto(idPhoto).subscribe(response => console.log(response));
   }
 
   ngOnInit(): void {

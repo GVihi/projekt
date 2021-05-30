@@ -51,4 +51,8 @@ export class PhotoService {
     return this.http.post(PhotoService.host + `/${photoId}/comment/${userId}`, {comment: comment});
   }
 
+  public deletePhoto(idPhoto: Number): Observable<any> {
+    return this.http.delete(PhotoService.host + `/delete/${idPhoto}/`);
+  }
+
 }

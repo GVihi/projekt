@@ -17,10 +17,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register(username: String, nickname: String, email: String, password: String, passwordConfirm: String, age: Number) {
-    this.authService.register(username, nickname, email, password, age).subscribe((res) => {
-      if (res) this.router.navigate(['/login']);
-      else this.error = true;
-    })
+    if(password === passwordConfirm){
+      console.log("Passwords match!");
+      this.authService.register(username, nickname, email, password, age).subscribe((res) => {
+        if (res) this.router.navigate(['/login']);
+        else this.error = true;
+      })
+    }else{
+      console.log("Password do not match!");
+    }
+
+    
   }
 
 

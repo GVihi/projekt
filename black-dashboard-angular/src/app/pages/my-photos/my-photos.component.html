@@ -7,7 +7,7 @@
 
           
             <form>
-              <div class="form-group card-bgc" style="width: 25%">
+              <div class="form-group card-bgc mx-auto" style="width: 25%">
                 <label for="exampleFormControlTextarea1">Post a photo</label>
                 <input #title type="text" class="form-control" id="exampleInputEmail1" placeholder="Photo title">
                 <textarea #description placeholder="Leave your comment here" class="form-control card-bgc"
@@ -32,9 +32,9 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">{{photo.title}}</h5>
-                      <p class="card-text">{{photo.desc}}</p>
-                      <a href="#" class="card-link">Remove (todo)</a>
-                    <a href="#" class="card-link">View details (todo)</a>
+                      <p class="card-text">{{photo.description}}</p>
+                      <a (click)="deletePhoto(photo.idPhoto)" href="javascript:void(0)" class="card-link">Remove</a>
+                    <a routerLink="/detail-photo/{{photo.idPhoto}}" class="card-link">View details</a>
                     </div>
                   </div>
                 </div>

@@ -19,7 +19,13 @@ exports.searchPhoto = async (req, res, next) => {
                 };
 
                 await ReverseSearch.saveReverseSearchResult(data).then((reverseResult) => {
-                    res.status(200).json(JSON.parse(response))
+                    const objects = JSON.parse(response);
+                    let results = [];
+                    for (var key in objects) {
+                        var value = objects[key];
+                        results.push({ "path": "http://139.177.182.18:8000/test-file/" + key, "photo": key, "similarity": value })
+                    }
+                    res.status(200).json(results)
                 })
             })
             /*

@@ -71,3 +71,13 @@ exports.downloadPhoto = async (req, res, next) => {
     const photo2 = JSON.parse(JSON.stringify(photo[0]));
     res.download(photo2[0].path);
 }
+
+exports.removePhoto = async (req, res, next) => {
+    console.log(req.params.photoId);
+    const deleted = await Photo.deletePhoto(req.params.photoId).catch((err) => {
+        if (err) res.json(err)
+    })
+    const rows = JSON.parse(JSON.stringify(deleted[0]));
+    if (rows.affectedRows > 0) res.status(200).json("Photo with id: " + req.params.photoId + " was deleted.")
+    if (rows.affectedRows == 0) res.status(200).json("Photo can not be deleted.")
+}

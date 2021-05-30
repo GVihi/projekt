@@ -58,7 +58,7 @@ exports.fetchCategory = async (categoryName) => {
 };
 
 exports.fetchPhotos = async () => {
-    return Promise.resolve(databaseConnection.query('SELECT idPhoto, title, path, date FROM pePhotos'));
+    return Promise.resolve(databaseConnection.query('SELECT idPhoto, title, path, date, description FROM pePhotos LIMIT 150'));
 }
 
 exports.fetchPhotoData = async (photoId) => {
@@ -88,13 +88,22 @@ exports.fetchPhotoComments = async (photoId) => {
 }
 
 exports.fetchUserPhotos = async (userId) => {
-    return databaseConnection.query('SELECT pePhotos.idPhoto, pePhotos.title, pePhotos.path FROM pePhotos JOIN peUsersPhotos ON pePhotos.idPhoto = peUsersPhotos.photoId WHERE peUsersPhotos.userId = ?', [userId]);
+    return databaseConnection.query('SELECT pePhotos.idPhoto, pePhotos.title, pePhotos.path, pePhotos.description FROM pePhotos JOIN peUsersPhotos ON pePhotos.idPhoto = peUsersPhotos.photoId WHERE peUsersPhotos.userId = ?', [userId]);
 }
 
 exports.insertUserPhotoRelation = async (photoId, userId) => {
     return new Promise((resolve, reject) => {
         const query = databaseConnection.query('INSERT INTO peUsersPhotos (photoId, userId) VALUES (?,?);',
             [photoId, userId]);
+        resolve(query);
+    });
+}
+
+exports.deletePhoto = async (photoId) => {
+    return new Promise((resolve, reject) => {
+        const query = databaseConnection.query('DELETE FROM pePhotos WHERE idPhoto = ?', [photoId], async (err) => {
+            if (err) reject(err);
+        })
         resolve(query);
     });
 }

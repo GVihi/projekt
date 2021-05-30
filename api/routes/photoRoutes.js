@@ -27,6 +27,7 @@ const upload = multer({
 });
 
 router.post('/:userId', upload.single('file'), jwtMiddleware.authenticateToken, photoController.uploadPhoto);
+router.delete('/delete/:photoId', jwtMiddleware.authenticateToken, photoController.removePhoto);
 
 router.get('/:userId', jwtMiddleware.authenticateToken, photoController.getUserPhotos)
 router.get('/', photoController.getPhotos);

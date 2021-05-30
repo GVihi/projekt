@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { PhotoService } from 'src/app/services/photo.service';
-
-
+import { ResultItem } from 'src/app/models/reverse-search-results';
+import { Chart } from 'chart.js';
 class ImageSnippet {
   pending: boolean = false;
   status: string = 'init';
@@ -16,7 +16,7 @@ class ImageSnippet {
 })
 export class ReverseSearchComponent implements OnInit {
 
-
+  results: ResultItem[] = [];
   selectedFile: ImageSnippet;
 
   constructor(private photoService: PhotoService) { }
@@ -36,6 +36,7 @@ export class ReverseSearchComponent implements OnInit {
     const file: File = imageInput.files[0];
     const reader = new FileReader();
 
+
     reader.addEventListener('load', (event: any) => {
 
       this.selectedFile = new ImageSnippet(event.target.result, file);
@@ -45,6 +46,8 @@ export class ReverseSearchComponent implements OnInit {
         (res) => {
           this.onSuccess();
           console.log(res)
+          this.results = res;
+          this.createChart()
         },
         (err) => {
           this.onError();
@@ -52,6 +55,35 @@ export class ReverseSearchComponent implements OnInit {
     });
 
     reader.readAsDataURL(file);
+  }
+
+
+  createChart() {
+
+    let photos = this.results.map(res => res.photo)
+    let similarities = this.results.map(res => res.similarity)
+    console.log(photos)
+    console.log(similarities)
+
+    var myChart = new Chart("myChart", {
+      type: 'line',
+      data: {
+        labels: photos,
+        datasets: [{
+          label: '# of Votes',
+          data: similarities,
+          borderColor: '#ffcc00',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
   }
 
   ngOnInit(): void {
