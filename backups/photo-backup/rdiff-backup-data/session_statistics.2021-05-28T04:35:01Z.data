@@ -1,0 +1,18 @@
+StartTime 1622176501.00 (Fri May 28 04:35:01 2021)
+EndTime 1622176501.90 (Fri May 28 04:35:01 2021)
+ElapsedTime 0.90 (0.90 seconds)
+SourceFiles 43
+SourceFileSize 5924165 (5.65 MB)
+MirrorFiles 24
+MirrorFileSize 2272707 (2.17 MB)
+NewFiles 19
+NewFileSize 3651458 (3.48 MB)
+DeletedFiles 0
+DeletedFileSize 0 (0 bytes)
+ChangedFiles 1
+ChangedSourceSize 0 (0 bytes)
+ChangedMirrorSize 0 (0 bytes)
+IncrementFiles 20
+IncrementFileSize 0 (0 bytes)
+TotalDestinationSizeChange 3651458 (3.48 MB)
+Errors 0

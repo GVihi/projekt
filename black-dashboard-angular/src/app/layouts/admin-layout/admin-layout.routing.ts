@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-
+import { AuthGuard } from '../../services/auth.guard';
 import { DashboardComponent } from "../../pages/dashboard/dashboard.component";
 import { IconsComponent } from "../../pages/icons/icons.component";
 import { MapComponent } from "../../pages/map/map.component";
@@ -25,13 +25,13 @@ export const AdminLayoutRoutes: Routes = [
   { path: "user", component: UserComponent },
   { path: "tables", component: TablesComponent },
   { path: "typography", component: TypographyComponent },
-  { path: "reverse-search", component: ReverseSearchComponent},
-  { path: "admin", component: AdminComponent },
+  { path: "reverse-search", component: ReverseSearchComponent, canActivate: [AuthGuard] },
+  { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
   { path: "login", component: LoginComponent },
-  { path: "my-photos", component: MyPhotosComponent },
+  { path: "my-photos", component: MyPhotosComponent, canActivate: [AuthGuard] },
   { path: "photos", component: PhotosComponent },
-  { path: "profile", component: ProfileComponent },
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
   { path: "register", component: RegisterComponent },
-  { path: "detail-photo", component: DetailPhotoComponent }
+  { path: "detail-photo/:photoId", component: DetailPhotoComponent, canActivate: [AuthGuard] }
   // { path: "rtl", component: RtlComponent }
 ];

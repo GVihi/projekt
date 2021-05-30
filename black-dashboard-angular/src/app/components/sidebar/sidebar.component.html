@@ -13,6 +13,10 @@
     <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{ menuItem.class }} nav-item">
       <a [routerLink]="[menuItem.path]">
         <i class="tim-icons  {{ menuItem.icon }}"></i>
+        <!--
+
+          *ngIf="a !== 1 && (menuItem.title === 'Login' || menuItem.title === 'Register')"
+        -->
         <p>{{ menuItem.title }}</p>
       </a>
     </li>

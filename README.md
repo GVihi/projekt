@@ -12,6 +12,7 @@ Spletna aplikacija je demonstracija "reverse image" iskanja podobnih slik s pomo
 - Pridobivanje slik z Pixabay API-ja
 - Nalaganje slik
 - Pridobivanje podatkov slik
+- Admin funkcije
 
 ## **ORV**
 - Povezava NodeJs in Pythona za izvajanje algoritmov

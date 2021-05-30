@@ -26,11 +26,12 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
-router.post('/', upload.single('file'), photoController.uploadPhoto);
+router.post('/:userId', upload.single('file'), photoController.uploadPhoto);
 
-
+router.get('/:userId', jwtMiddleware.authenticateToken, photoController.getUserPhotos)
 router.get('/', photoController.getPhotos);
-router.get('/:photoId', photoController.getPhotoData);
-
-router.post('/:photoId/comment/:userId', photoController.commentPhoto);
+router.get('/details/:photoId', jwtMiddleware.authenticateToken, photoController.getPhotoData2);
+router.get('/:photoId/comments', jwtMiddleware.authenticateToken, photoController.getPhotoComments);
+router.post('/:photoId/comment/:userId', jwtMiddleware.authenticateToken, photoController.commentPhoto);
+router.get('/download/:photoId', jwtMiddleware.authenticateToken, photoController.downloadPhoto)
 module.exports = router;

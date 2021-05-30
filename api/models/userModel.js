@@ -39,7 +39,7 @@ exports.updateUser = async (user) => {
 
 exports.checkCredentials = async (username, email) => {
     return new Promise((resolve, reject) => {
-        const exists = databaseConnection.query('SELECT * FROM peUsers WHERE username = ? OR email = ?', [username, email], async (err, res) => {
+        const exists = databaseConnection.query('SELECT peUsers.*, privilege FROM  peUsers JOIN peUsersPrivileges ON peUsers.idUser = peUsersPrivileges.userId JOIN pePrivileges ON peUsersPrivileges.privilegeId = pePrivileges.idPrivilege WHERE peUsers.username = ? OR peUsers.email = ?', [username, email], async (err, res) => {
             if (err) reject(err);
             if (res === undefined) reject("Error")
         });

@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-
+import { Component, OnChanges, OnInit } from "@angular/core";
+import { Observable } from 'rxjs';
+import { AuthService } from "src/app/services/auth.service";
 declare interface RouteInfo {
   path: string;
   title: string;
@@ -66,12 +67,22 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  loginStatus$: Observable<boolean>;
+  a: Number = 0;
 
-  constructor() {}
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems.forEach((item) => {
+      console.log(item)
+    })
+    this.loginStatus$ = this.authService.isLoggedIn;
+    console.log(this.loginStatus$)
   }
+
+
+
   isMobileMenu() {
     if (window.innerWidth > 991) {
       return false;

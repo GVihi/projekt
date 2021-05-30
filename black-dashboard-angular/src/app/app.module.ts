@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFileUploadModule } from 'angular-material-fileupload';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
@@ -27,15 +28,19 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DetailPhotoComponent } from './pages/detail-photo/detail-photo.component';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   imports: [
     MatInputModule,
     MatFormFieldModule,
     MatFileUploadModule,
+    MatTabsModule,
     MatIconModule,
     MatButtonModule,
+    MatPaginatorModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,

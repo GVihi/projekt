@@ -3,8 +3,8 @@ require('dotenv').config()
 
 exports.createToken = async (userData) => {
     return {
-        "accessToken": jwt.sign({ "username": userData.username, "email": userData.email }, process.env.accessKey, { expiresIn: '15s' }),
-        "refreshToken": refreshToken = jwt.sign({ "username": userData.username, "email": userData.email }, process.env.refreshKey, { expiresIn: '45m' })
+        "accessToken": jwt.sign({ "idUser": userData.idUser, "role": userData.privilege, "username": userData.username, "email": userData.email }, process.env.accessKey, { expiresIn: '15s' }),
+        "refreshToken": jwt.sign({ "idUser": userData.idUser, "username": userData.username, "role": userData.privilege, "email": userData.email }, process.env.refreshKey, { expiresIn: '45m' })
     };
 }
 
@@ -23,7 +23,7 @@ exports.validateRefreshTokenExpirationDate = (decoded) => {
 }
 
 exports.generateNewAccessToken = (decodedToken) => {
-    return jwt.sign({ "username": decodedToken.username, "email": decodedToken.email }, process.env.accessKey, { expiresIn: '5m' });
+    return jwt.sign({ "idUser": decodedToken.idUser, "role": decodedToken.privilege, "username": decodedToken.username, "email": decodedToken.email }, process.env.accessKey, { expiresIn: '5m' });
 }
 
 exports.authenticateToken = async (req, res, next) => {

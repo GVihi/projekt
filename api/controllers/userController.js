@@ -9,7 +9,7 @@ exports.register = async (req, res, next) => {
     await User.checkCredentials(req.body.username, req.body.email).then(async (response) => {
 
         // we check if we got back data, if we got it, user exists
-        if (response[0].length) res.json("User already exists. Need new email or username.");
+        if (response[0].length) res.json(false);
         else {
             // creating new user, we encrypt password for given data
             const encryptedUser = await User.encryptUser(req.body);
@@ -21,19 +21,21 @@ exports.register = async (req, res, next) => {
                 await User.createPrivilege(created[0].insertId).then(() => {
 
                     // user created with privilege
-                    res.json("User " + created[0].insertId + " created");
+                    res.json(true);
 
                 }).catch((err) => {
                     console.log("Pivilege error-> " + err);
+                    res.json(false)
                 })
             }).catch(() => {
                 // user was not created
-                res.json("User was not created. Error occured.")
+                res.json(false)
             })
         }
 
     }).catch((err) => {
         console.log("Checking username error -> " + err);
+
     })
 };
 
@@ -57,14 +59,14 @@ exports.login = async (req, res, next) => {
                 // we return tokens to user
                 res.status(200).json(tokens);
             }
-            else res.send("Passwords do not match")
+            else res.status(401).json("Passwords do not match")
 
         } else {
-            res.status(200).json("User does not exist. Wrong email.");
+            res.status(400).json("User does not exist. Wrong email.");
         }
     }).catch((error) => {
         console.log('Login erorr -> ' + error);
-        res.json("Error logging user.");
+        res.status(401).json("Error logging user.");
     });
 };
 
@@ -73,8 +75,13 @@ exports.getUser = async (req, res, next) => {
     res.status(200).json(user[0]);
 };
 
+exports.getUserById = async (req, res, next) => {
+    const user = await User.fetchUserById(req.params.userId)
+    const user2 = JSON.parse(JSON.stringify(user[0]));
+    res.status(200).json(user2[0]);
+};
+
 exports.getUsers = async (req, res, next) => {
-    // we fetch all users and return them
     const allUsers = await User.fetchAllUsers();
     res.status(200).json(allUsers[0]);
 };

@@ -1,6 +1,13 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { PhotoService } from 'src/app/services/photo.service';
 
 
+class ImageSnippet {
+  pending: boolean = false;
+  status: string = 'init';
+
+  constructor(public src: string, public file: File) { }
+}
 
 @Component({
   selector: 'app-reverse-search',
@@ -9,36 +16,43 @@ import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 })
 export class ReverseSearchComponent implements OnInit {
 
-  @ViewChild('fileInput') fileInput: ElementRef;
-  fileAttr = 'Choose File';
 
+  selectedFile: ImageSnippet;
 
-  uploadFileEvt(imgFile: any) {
-    if (imgFile.target.files && imgFile.target.files[0]) {
-      this.fileAttr = '';
-      Array.from(imgFile.target.files).forEach((file: File) => {
-        this.fileAttr += file.name + ' - ';
-      });
+  constructor(private photoService: PhotoService) { }
 
-      // HTML5 FileReader API
-      let reader = new FileReader();
-      reader.onload = (e: any) => {
-        let image = new Image();
-        image.src = e.target.result;
-        image.onload = rs => {
-          let imgBase64Path = e.target.result;
-        };
-      };
-      reader.readAsDataURL(imgFile.target.files[0]);
-
-      // Reset if duplicate image uploaded again
-      this.fileInput.nativeElement.value = "";
-    } else {
-      this.fileAttr = 'Choose File';
-    }
+  private onSuccess() {
+    this.selectedFile.pending = false;
+    this.selectedFile.status = 'ok';
   }
 
-  constructor() { }
+  private onError() {
+    this.selectedFile.pending = false;
+    this.selectedFile.status = 'fail';
+    this.selectedFile.src = '';
+  }
+
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.selectedFile.pending = true;
+      this.photoService.reverseSearch(this.selectedFile.file, 12).subscribe(
+        (res) => {
+          this.onSuccess();
+          console.log(res)
+        },
+        (err) => {
+          this.onError();
+        })
+    });
+
+    reader.readAsDataURL(file);
+  }
 
   ngOnInit(): void {
   }

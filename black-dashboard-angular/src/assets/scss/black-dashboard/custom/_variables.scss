@@ -45,8 +45,8 @@ $blue:    #5e72e4 !default;
 $indigo:  #5603ad !default;
 $purple:  #8965e0 !default;
 $pink:    #f3a4b5 !default;
-$red:     #f5365c !default;
-$orange:  #fb6340 !default;
+$red:     #963044 !default;
+$orange:  #cc593fea !default;
 $yellow:  #ffd600 !default;
 $green:   #2dce89 !default;
 $teal:    #11cdef !default;
@@ -94,7 +94,7 @@ $colors: map-merge((
 ), $colors);
 
 $default-color-opacity:      rgba(182, 182, 182, .6) !default;
-$orange-color:               #f96332 !default;
+$orange-color:               #d66551e7 !default;
 
 $default:       #344675 !default;
 $primary:       #e77d26e3 !default;
@@ -102,7 +102,7 @@ $secondary:     #f4f5f7 !default;
 $success:       #3fca5e !default;
 $info:          #1782ee !default;
 $warning:       #ff8d72 !default;
-$danger:        #fd5d93 !default;
+$danger:        #1d64b6 !default;
 $black:         #222a42 !default;
 
 
@@ -112,7 +112,7 @@ $primary-states:       #df7834 !default;
 $success-states:       #0098f0 !default;
 $info-states:          #3358f4 !default;
 $warning-states:       #ff6491 !default;
-$danger-states:        #ec250d !default;
+$danger-states:        #2164c9 !default;
 $black-states:         #1d253b !default;
 
 $background-black:           #1e1e2f !default;
