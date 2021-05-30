@@ -26,7 +26,7 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
-router.post('/:userId', upload.single('file'), photoController.uploadPhoto);
+router.post('/:userId', upload.single('file'), jwtMiddleware.authenticateToken, photoController.uploadPhoto);
 
 router.get('/:userId', jwtMiddleware.authenticateToken, photoController.getUserPhotos)
 router.get('/', photoController.getPhotos);

@@ -5,16 +5,24 @@
         <div class=" card-body">
           <h3>My photos</h3>
 
-          <label class="image-upload-container btn btn-bwm">
-            <span>Select Image</span>
-            <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
-          </label>
-
-
+          
+            <form>
+              <div class="form-group card-bgc" style="width: 25%">
+                <label for="exampleFormControlTextarea1">Post a photo</label>
+                <input #title type="text" class="form-control" id="exampleInputEmail1" placeholder="Photo title">
+                <textarea #description placeholder="Leave your comment here" class="form-control card-bgc"
+                  id="exampleFormControlTextarea1" rows="3"></textarea>
+                <button style="margin-top: 10px;" type="button" class="btn btn-info">
+                  <label style="color: white" for="inputImage">Select image</label>
+                  <input class="form-control-file" id="inputImage" #imageInput type="file" accept="image/*">
+                </button>
+                <button (click)="processFile(imageInput, title.value, description.value)" style="float: right; padding: 10px; margin: 15px;" type="submit" class="btn btn-info">
+                  Upload
+                </button>
+              </div>
+            </form>
+          
           <div class="container">
-
-
-
             <div *ngFor="let photo of photos" class="row">
               <div class="card mb-3 card-bgc" style="max-width: 1080px; max-height: 1920px;">
                 <div class="row g-0">
@@ -24,19 +32,13 @@
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">{{photo.title}}</h5>
-                      <p class="card-text">{{photo.path}}}}</p>
-                      <a href="#" class="card-link">Remove</a>
-                    <a href="#" class="card-link">View comments</a>
+                      <p class="card-text">{{photo.desc}}</p>
+                      <a href="#" class="card-link">Remove (todo)</a>
+                    <a href="#" class="card-link">View details (todo)</a>
                     </div>
                   </div>
                 </div>
             </div>
-
-
-            
-
-            
-
           </div>
 
         </div>

@@ -6,11 +6,9 @@
 
           <div class="card card-bgc">
             <div class="card-body">
-              <h5 class="card-title">{{photo.title}}</h5>
-              <span class="card-title"><span class="text-muted">Posted by:</span> Jon Doe</span> <br>
+              <h3 class="card-title"><b>{{photo.title}}</b></h3>
               <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
+              
             </div>
             <img [src]=photo.path class="card-img-bottom" alt="...">
             <button (click)="download(photo.idPhoto)" type="button" class="btn btn-info">Download photo</button>
@@ -21,47 +19,17 @@
             <form>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Post a comment</label>
-                <textarea placeholder="Leave your comment here" class="form-control card-bgc"
+                <textarea #comment placeholder="Leave your comment here" class="form-control card-bgc"
                   id="exampleFormControlTextarea1" rows="3"></textarea>
-                <a href="#" class="btn btn-danger">Submit comment</a>
+                <button (click)="postComment(comment.value)" class="btn btn-danger">Submit comment</button>
                 <br> <br>
               </div>
             </form>
 
-            <div class="card card-bgc" style="padding: 5px">
-              <span class="card-title"><span class="text-muted">Username:</span> Jon Doe</span>
-              <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              <p class="card-text">A very thoughtful comment.</p>
-            </div>
-
-            <div class="card card-bgc" style="padding: 5px">
-              <span class="card-title"><span class="text-muted">Username:</span> Jon Doe</span>
-              <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              <p class="card-text">A very thoughtful comment.</p>
-            </div>
-
-            <div class="card card-bgc" style="padding: 5px">
-              <span class="card-title"><span class="text-muted">Username:</span> Jon Doe</span>
-              <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              <p class="card-text">A very thoughtful comment.</p>
-            </div>
-
-            <div class="card card-bgc" style="padding: 5px">
-              <span class="card-title"><span class="text-muted">Username:</span> Jon Doe</span>
-              <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              <p class="card-text">A very thoughtful comment.</p>
-            </div>
-
-            <div class="card card-bgc" style="padding: 5px">
-              <span class="card-title"><span class="text-muted">Username:</span> Jon Doe</span>
-              <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              <p class="card-text">A very thoughtful comment.</p>
-            </div>
-
-            <div class="card card-bgc" style="padding: 5px">
-              <span class="card-title"><span class="text-muted">Username:</span> Jon Doe</span>
-              <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              <p class="card-text">A very thoughtful comment.</p>
+            <div *ngFor="let comment of comments" class="card card-bgc" style="padding: 5px">
+              <span class="card-title"><span class="text-muted">Username:</span>{{comment.username}}</span>
+              <span class="card-title"><span class="text-muted">Date posted:</span>{{comment.date}}</span>
+              <p class="card-text">{{comment.comment}}</p>
             </div>
 
           </div>

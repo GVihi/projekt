@@ -43,6 +43,55 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "ار تي ال",
     icon: "icon-settings",
     class: ""
+  }
+];
+
+export const logged: RouteInfo[] = [
+  {
+    path: "/reverse-search",
+    title: "Reverse Search",
+    rtlTitle: "لوحة القيادة",
+    icon: "icon-zoom-split",
+    class: ""
+  },
+  {
+    path: "/photos",
+    title: "Photos",
+    rtlTitle: "ار تي ال",
+    icon: "icon-image-02",
+    class: ""
+  },
+  {
+    path: "/my-photos",
+    title: "My Photos",
+    rtlTitle: "ار تي ال",
+    icon: "icon-image-02",
+    class: ""
+  },
+  {
+    path: "/profile",
+    title: "Profile",
+    rtlTitle: "ار تي ال",
+    icon: "icon-single-02",
+    class: ""
+  },
+  {
+    path: "/admin",
+    title: "Admin",
+    rtlTitle: "ار تي ال",
+    icon: "icon-settings",
+    class: ""
+  }
+];
+
+
+export const notLogged: RouteInfo[] = [
+  {
+    path: "/photos",
+    title: "Photos",
+    rtlTitle: "ار تي ال",
+    icon: "icon-image-02",
+    class: ""
   },
   {
     path: "/login",
@@ -67,18 +116,17 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  menuLoggedItems: any[];
+  menuNotLoggedItems: any[];
   loginStatus$: Observable<boolean>;
   a: Number = 0;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
-    this.menuItems.forEach((item) => {
-      console.log(item)
-    })
+    this.menuItems = logged;//ROUTES.filter(menuItem => menuItem);
+    this.menuNotLoggedItems = notLogged;
     this.loginStatus$ = this.authService.isLoggedIn;
-    console.log(this.loginStatus$)
   }
 
 

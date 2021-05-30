@@ -55,6 +55,7 @@ export class AuthService {
 
   public logout() {
     this.removeSession();
+    this.loggedIn.next(false);
   }
 
   private removeSession() {

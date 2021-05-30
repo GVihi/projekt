@@ -6,9 +6,9 @@ const jwtMiddleware = require('../middleware/jsonWebToken');
 router.post('/register', userController.register);
 router.post('/login', userController.login);
 router.post('/generate-access-token', userController.generateAccessToken)
-router.get('/get-user', userController.getUser)
-router.get('/get-user/:userId', userController.getUserById)
-router.get('/get-users', userController.getUsers)
+router.get('/get-user', jwtMiddleware.authenticateToken, userController.getUser)
+router.get('/get-user/:userId', jwtMiddleware.authenticateToken, userController.getUserById)
+router.get('/get-users', jwtMiddleware.authenticateToken, userController.getUsers)
 
 
 

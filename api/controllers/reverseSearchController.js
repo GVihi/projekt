@@ -22,10 +22,10 @@ exports.searchPhoto = async (req, res, next) => {
                     res.status(200).json(JSON.parse(response))
                 })
             })
-
-            /*await ReverseSearch.saveReverseSearchResult(data).then((reverseResult) => {
-                res.status(200).json("Reverse completed")
-            })*/
+            /*
+                        await ReverseSearch.saveReverseSearchResult(data).then((reverseResult) => {
+                            res.status(200).json("Reverse completed")
+                        })*/
         })
 
 

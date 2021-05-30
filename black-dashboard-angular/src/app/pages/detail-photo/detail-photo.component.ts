@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { PhotoItem } from '../../models/photo-item';
+import { CommentItem } from '../../models/comment-item';
 import { PhotoService } from '../../services/photo.service';
 import * as fileSaver from 'file-saver';
 @Component({
@@ -12,6 +13,7 @@ export class DetailPhotoComponent implements OnInit {
 
   photo: PhotoItem;
   idPhoto: Number;
+  comments: CommentItem[] = [];
   constructor(private photoService: PhotoService, private router: Router, private route: ActivatedRoute) {
 
   }
@@ -30,7 +32,7 @@ export class DetailPhotoComponent implements OnInit {
         } else {
           finalPath += path;
         }
-        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date);
+        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date, photo.description);
         this.photo = photoItem
 
       });
@@ -39,6 +41,7 @@ export class DetailPhotoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPhotoData();
+    this.getComments();
     console.log(this.photo)
 
   }
@@ -46,6 +49,23 @@ export class DetailPhotoComponent implements OnInit {
   download(photoId: Number) {
     this.photoService.downloadPhoto(photoId).subscribe(data => fileSaver.saveAs(data, this.photo.title.toString()),
       error => console.error(error));
+  }
+
+  getComments(): void{
+    this.route.params.subscribe((params: Params) => {
+      this.idPhoto = params.photoId;
+      this.photoService.getComments(this.idPhoto).subscribe(comments => this.comments = comments);
+    });
+  }
+
+  postComment(content: String): void{
+    console.log(content);
+    this.route.params.subscribe((params: Params) => {
+      this.idPhoto = params.photoId;
+      const idUser = localStorage.getItem("userId");
+      var userId: number = +idUser;
+      this.photoService.postComment(content, userId, this.idPhoto).subscribe(response => console.log(response));
+    });
   }
 
 }

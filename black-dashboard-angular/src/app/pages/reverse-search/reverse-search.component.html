@@ -15,21 +15,15 @@
             </button>
           </form>
 -->
-          <label class="image-upload-container btn btn-bwm">
-            <span>Select Image</span>
-            <input #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
-          </label>
-
-
-
           <form>
             <div class="form-group">
-              <button class="btn btn-info">
-                <label for="exampleFormControlFile1">Browse files</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              <button type="button" class="btn btn-info">
+                <label style="color: white" for="inputImage">Reverse search images by uploading</label>
+                <input id="inputImage" #imageInput type="file" accept="image/*" (change)="processFile(imageInput)">
               </button>
             </div>
           </form>
+
           <br>
 
           <h3 class=" card-title">

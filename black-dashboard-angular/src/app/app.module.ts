@@ -30,6 +30,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { DetailPhotoComponent } from './pages/detail-photo/detail-photo.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './services/token.interceptor';
 @NgModule({
   imports: [
     MatInputModule,
@@ -61,9 +64,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AdminComponent,
     LoginComponent,
     RegisterComponent,
-    DetailPhotoComponent
+    DetailPhotoComponent,
+    EditProfileComponent
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,7 +22,9 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUser(4); //static for now!! To be changed to get by token
+    const idUser = localStorage.getItem("userId");
+    var userId: number = +idUser;
+    this.getUser(userId);
   }
 
 }

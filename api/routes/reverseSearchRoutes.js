@@ -26,6 +26,6 @@ const upload = multer({
     fileFilter: fileFilter
 });
 
-router.post('/:userId', upload.single('file'), reverseSearchController.searchPhoto);
+router.post('/:userId', upload.single('file'), jwtMiddleware.authenticateToken, reverseSearchController.searchPhoto);
 
 module.exports = router;

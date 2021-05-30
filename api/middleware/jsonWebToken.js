@@ -3,7 +3,7 @@ require('dotenv').config()
 
 exports.createToken = async (userData) => {
     return {
-        "accessToken": jwt.sign({ "idUser": userData.idUser, "role": userData.privilege, "username": userData.username, "email": userData.email }, process.env.accessKey, { expiresIn: '15s' }),
+        "accessToken": jwt.sign({ "idUser": userData.idUser, "role": userData.privilege, "username": userData.username, "email": userData.email }, process.env.accessKey, { expiresIn: '15m' }),
         "refreshToken": jwt.sign({ "idUser": userData.idUser, "username": userData.username, "role": userData.privilege, "email": userData.email }, process.env.refreshKey, { expiresIn: '45m' })
     };
 }
@@ -28,6 +28,7 @@ exports.generateNewAccessToken = (decodedToken) => {
 
 exports.authenticateToken = async (req, res, next) => {
     const token = req.header('accessToken');
+    console.log(token)
     if (token == null) return res.sendStatus(401)
     jwt.verify(token, process.env.accessKey, (err, token) => {
         if (err) return res.sendStatus(403)

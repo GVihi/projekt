@@ -34,7 +34,10 @@ export class MyPhotosComponent implements OnInit {
     this.selectedFile.src = '';
   }
 
-  processFile(imageInput: any) {
+  processFile(imageInput: any, title: String, description: String) {
+    console.log(title + " " + description);
+    const idUser = localStorage.getItem("userId");
+    var userId: number = +idUser;
     const file: File = imageInput.files[0];
     const reader = new FileReader();
 
@@ -43,7 +46,7 @@ export class MyPhotosComponent implements OnInit {
       this.selectedFile = new ImageSnippet(event.target.result, file);
 
       this.selectedFile.pending = true;
-      this.photoService.uploadPhoto(this.selectedFile.file, 12).subscribe(
+      this.photoService.uploadPhoto(this.selectedFile.file, userId, title, description).subscribe(
         (res) => {
           this.onSuccess();
         },
@@ -68,7 +71,7 @@ export class MyPhotosComponent implements OnInit {
         } else {
           finalPath += path;
         }
-        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date);
+        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date, photo.description);
         this.photos.push(photoItem)
 
       })
@@ -76,7 +79,9 @@ export class MyPhotosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPhotos(12); //static for now
+    const idUser = localStorage.getItem("userId");
+    var userId: number = +idUser;
+    this.getPhotos(userId);
   }
 
 }

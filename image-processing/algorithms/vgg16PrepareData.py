@@ -16,7 +16,7 @@ cnx = mysql.connector.connect(
     db="peDatabase")
 mysqlQuery = cnx.cursor()
 
-mysqlQuery.execute("SELECT pePhotos.* FROM pePhotos");
+mysqlQuery.execute("SELECT pePhotos.* FROM pePhotos WHERE idPhoto > 1836");
 
 fe = FeatureExtractor()
 
