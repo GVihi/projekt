@@ -21,8 +21,16 @@ export class EditProfileComponent implements OnInit {
     console.log(this.user.username);
   }
 
+  confirm(nickname: String, email: String, age: Number): void {
+    const idUser = localStorage.getItem("userId");
+    var userId: number = +idUser;
+    this.adminService.updateUser(userId, nickname, email, age).subscribe(response => console.log(response));
+  }
+
   ngOnInit(): void {
-    this.getUser(76); //static for now!! To be changed to get by token
+    const idUser = localStorage.getItem("userId");
+    var userId: number = +idUser;
+    this.getUser(userId); //static for now!! To be changed to get by token
   }
 
 }

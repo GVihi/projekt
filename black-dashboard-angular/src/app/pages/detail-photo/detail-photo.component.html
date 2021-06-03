@@ -8,11 +8,16 @@
             <div class="card-body">
               <h3 class="card-title"><b>{{photo.title}}</b></h3>
               <span class="card-title"><span class="text-muted">Date posted:</span> 28-05-2021</span>
-              
+
             </div>
             <img [src]=photo.path class="card-img-bottom" alt="...">
             <button (click)="download(photo.idPhoto)" type="button" class="btn btn-info">Download photo</button>
           </div>
+          <div class=" card-header">Image location</div>
+          <div>
+            <div id="map" class="map"></div>
+          </div>
+
           <div>
             <p class="card-text"><small class="text-muted">Comments</small></p>
 

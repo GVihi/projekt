@@ -55,6 +55,13 @@ export const logged: RouteInfo[] = [
     class: ""
   },
   {
+    path: "/classify-image",
+    title: "Classify image",
+    rtlTitle: "لوحة القيادة",
+    icon: "icon-zoom-split",
+    class: ""
+  },
+  {
     path: "/photos",
     title: "Photos",
     rtlTitle: "ار تي ال",

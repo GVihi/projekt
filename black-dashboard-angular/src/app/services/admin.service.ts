@@ -28,4 +28,8 @@ export class AdminService {
   public backupPhotos(): Observable<any> {
     return this.http.get(AdminService.hostAdmin + "/create-backup-photos");
   }
+
+  public updateUser(userId: Number, nickname: String, email: String, age: Number): Observable<UserItem> {
+    return this.http.put<UserItem>(AdminService.hostAdmin + `/update-user/${userId}`, {nickname: nickname, email: email, age: age});
+  }
 }

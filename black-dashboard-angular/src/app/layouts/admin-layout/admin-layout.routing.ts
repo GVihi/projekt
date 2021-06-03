@@ -16,6 +16,7 @@ import { ProfileComponent } from "../../pages/profile/profile.component";
 import { RegisterComponent } from "../../pages/register/register.component";
 import { DetailPhotoComponent } from "../../pages/detail-photo/detail-photo.component";
 import { EditProfileComponent } from "../../pages/edit-profile/edit-profile.component";
+import { ClassifyImageComponent } from "../../pages/classify-image/classify-image.component";
 // import { RtlComponent } from "../../pages/rtl/rtl.component";
 
 export const AdminLayoutRoutes: Routes = [
@@ -27,6 +28,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: "tables", component: TablesComponent },
   { path: "typography", component: TypographyComponent },
   { path: "reverse-search", component: ReverseSearchComponent, canActivate: [AuthGuard] },
+  { path: "classify-image", component: ClassifyImageComponent, canActivate: [AuthGuard] },
   { path: "admin", component: AdminComponent, canActivate: [AuthGuard] },
   { path: "login", component: LoginComponent },
   { path: "my-photos", component: MyPhotosComponent, canActivate: [AuthGuard] },
@@ -34,6 +36,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
   { path: "register", component: RegisterComponent },
   { path: "detail-photo/:photoId", component: DetailPhotoComponent, canActivate: [AuthGuard] },
-  { path: "edit-profile/:userId", component: EditProfileComponent, canActivate: [AuthGuard] }
+  { path: "edit-profile", component: EditProfileComponent, canActivate: [AuthGuard] }
   // { path: "rtl", component: RtlComponent }
 ];

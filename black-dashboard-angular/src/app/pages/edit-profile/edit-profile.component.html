@@ -33,7 +33,7 @@
                                 <h6 class="mb-0">Nickname</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="text" class="form-control" value="{{user.nickname}}">
+                                <input #nickname type="text" class="form-control" value="{{user.nickname}}">
                             </div>
                             </div>
                             <hr>
@@ -42,7 +42,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="email" class="form-control" value="{{user.email}}">
+                                <input #email type="email" class="form-control" value="{{user.email}}">
                             </div>
                             </div>
                             <hr>
@@ -51,31 +51,14 @@
                                 <h6 class="mb-0">Age</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <input type="number" class="form-control" value="{{user.age}}">
+                                <input #age type="number" class="form-control" value="{{user.age}}">
                             </div>
                             </div>
-                            <hr>
-                            <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Password</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="password" class="form-control">
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                            <div class="col-sm-3">
-                                <h6 class="mb-0">Confirm Password</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                                <input type="password" class="form-control">
-                            </div>
-                            </div>
+                            
                             <hr>
                             <div class="row">
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-info " href="javascript:void(0);">Confirm</button>
+                                <button (click)="confirm(nickname.value, email.value, age.value)" type="submit" class="btn btn-info " href="javascript:void(0);">Confirm</button>
                             </div>
                             </div>
                         </div>

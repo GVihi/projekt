@@ -33,6 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
+import { ClassifyImageComponent } from './pages/classify-image/classify-image.component';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   imports: [
     MatInputModule,
@@ -51,7 +53,10 @@ import { TokenInterceptor } from './services/token.interceptor';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDGNz-Pdq9y9WVbLHWnV3FZ9BjCZZ5x6zs'
+    })
   ],
   declarations: [
     AppComponent,
@@ -65,7 +70,8 @@ import { TokenInterceptor } from './services/token.interceptor';
     LoginComponent,
     RegisterComponent,
     DetailPhotoComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    ClassifyImageComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
