@@ -17,47 +17,9 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/photos",
-    title: "Photos",
-    rtlTitle: "ار تي ال",
-    icon: "icon-image-02",
-    class: ""
-  },
-  {
-    path: "/my-photos",
-    title: "My Photos",
-    rtlTitle: "ار تي ال",
-    icon: "icon-image-02",
-    class: ""
-  },
-  {
-    path: "/profile",
-    title: "Profile",
-    rtlTitle: "ار تي ال",
-    icon: "icon-single-02",
-    class: ""
-  },
-  {
-    path: "/admin",
-    title: "Admin",
-    rtlTitle: "ار تي ال",
-    icon: "icon-settings",
-    class: ""
-  }
-];
-
-export const logged: RouteInfo[] = [
-  {
-    path: "/reverse-search",
-    title: "Reverse Search",
-    rtlTitle: "لوحة القيادة",
-    icon: "icon-zoom-split",
-    class: ""
-  },
-  {
     path: "/classify-image",
     title: "Classify image",
-    rtlTitle: "لوحة القيادة",
+    rtlTitle: "ار تي ال",
     icon: "icon-zoom-split",
     class: ""
   },
@@ -91,30 +53,6 @@ export const logged: RouteInfo[] = [
   }
 ];
 
-
-export const notLogged: RouteInfo[] = [
-  {
-    path: "/photos",
-    title: "Photos",
-    rtlTitle: "ار تي ال",
-    icon: "icon-image-02",
-    class: ""
-  },
-  {
-    path: "/login",
-    title: "Login",
-    rtlTitle: "ار تي ال",
-    icon: "icon-badge",
-    class: ""
-  },
-  {
-    path: "/register",
-    title: "Register",
-    rtlTitle: "ار تي ال",
-    icon: "icon-credit-card",
-    class: ""
-  }
-];
 
 @Component({
   selector: "app-sidebar",
@@ -131,8 +69,7 @@ export class SidebarComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.menuItems = logged;//ROUTES.filter(menuItem => menuItem);
-    this.menuNotLoggedItems = notLogged;
+    this.menuItems = ROUTES; //ROUTES.filter(menuItem => menuItem);
     this.loginStatus$ = this.authService.isLoggedIn;
   }
 

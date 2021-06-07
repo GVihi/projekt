@@ -25,6 +25,8 @@
                         </div>
                     </form>
 
+                    <img height="600px" [src]="imgURL" height="200" *ngIf="imgURL">
+
                     <br>
 
                     <h3 class=" card-title">
@@ -33,13 +35,7 @@
                     <br>
 
                     <div class="container">
-                        <div style="padding-bottom: 1em;">
-                            <canvas id="myChart" width="550" height="180"></canvas>
-                        </div>
-                        <div class="container">
-                            <div class="row" *ngFor="let result of results">
 
+                        <canvas id="barChart" width="150" height="180"></canvas>
 
-                            </div>
-                        </div>
                     </div>

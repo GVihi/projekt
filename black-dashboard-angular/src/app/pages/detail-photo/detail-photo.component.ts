@@ -18,8 +18,8 @@ export class DetailPhotoComponent implements OnInit {
   idPhoto: Number;
   comments: CommentItem[] = [];
 
-  latitude = 51.678418;
-  longitude = 7.809007;
+  latitude: Number;
+  longitude: Number;
   locationChosen = false;
 
   map: any;
@@ -42,8 +42,14 @@ export class DetailPhotoComponent implements OnInit {
         } else {
           finalPath += path;
         }
-        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date, photo.description);
-        this.photo = photoItem
+        this.longitude = photo.longitude;
+        this.latitude = photo.latitude;
+        //console.log("getPhotoData--> lon: " + this.longitude + " " + "lat:" + this.latitude);
+
+        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date, photo.description, photo.longitude, photo.latitude);
+        this.photo = photoItem;
+
+        this.initMap(this.photo.longitude, this.photo.latitude);
 
       });
     });
@@ -52,17 +58,19 @@ export class DetailPhotoComponent implements OnInit {
   ngOnInit(): void {
     this.getPhotoData();
     this.getComments();
-    var iconFeature1 = new ol.Feature({
-      geometry: new ol.geom.Point(ol.proj.fromLonLat([-0.1526069, 51.4790309]),),
-      name: 'Somewhere',
-    });
+  }
+
+  initMap(lon: Number, lat: Number): void{
+    console.log(lon + " " + lat)
+    let coordinates = ol.proj.fromLonLat([0.074575000000, 51.504105555600]);
+
 
     var iconFeature2 = new ol.Feature({
-      geometry: new ol.geom.Point(ol.proj.fromLonLat([-0.1426069, 51.4840309])),
+      geometry: new ol.geom.Point(ol.proj.fromLonLat([0.074575000000, 51.504105555600])),
       name: 'Somewhere else'
     });
+  
 
-    // specific style for that one point
     iconFeature2.setStyle(new ol.style.Style({
       image: new ol.style.Icon({
         anchor: [0.5, 46],
@@ -71,17 +79,13 @@ export class DetailPhotoComponent implements OnInit {
         src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Map_marker_font_awesome.svg/200px-Map_marker_font_awesome.svg.png',
       })
     }));
-
-
-
-
+  
     const iconLayerSource = new ol.source.Vector({
-      features: [iconFeature1, iconFeature2]
+      features: [ iconFeature2]
     });
-
+  
     const iconLayer = new ol.layer.Vector({
       source: iconLayerSource,
-      // style for all elements on a layer
       style: new ol.style.Style({
         image: new ol.style.Icon({
           anchor: [0.5, 46],
@@ -91,8 +95,8 @@ export class DetailPhotoComponent implements OnInit {
         })
       })
     });
-
-
+  
+  
     const map = new ol.Map({
       target: 'map',
       layers: [
@@ -102,8 +106,8 @@ export class DetailPhotoComponent implements OnInit {
         iconLayer
       ],
       view: new ol.View({
-        center: ol.proj.fromLonLat([-0.1526069, 51.4790309]),
-        zoom: 15
+        center: coordinates,
+        zoom: 17
       })
     });
   }

@@ -40,3 +40,22 @@ exports.searchPhoto = async (req, res, next) => {
         res.json(err);
     })
 }
+
+
+exports.classifyImage = async (req, res, next) => {
+    const photoData = {
+        title: req.file.filename,
+        path: req.file.path,
+        description: "Classify image"
+    }
+    await Photo.savePhoto(photoData).then(async (insertedPhoto) => {
+        await Photo.insertUserPhotoRelation(insertedPhoto[0].insertId, req.params.userId).then(async (resultRelation) => {
+            socket.socket.emit("classify-image", req.file.path);
+            socket.socket.on("classify-image-response", async (response) => {
+                res.status(200).json(JSON.parse(response))
+            })
+        })
+    }).catch((err) => {
+        res.json(err);
+    })
+}

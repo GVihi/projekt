@@ -75,7 +75,7 @@ export class MyPhotosComponent implements OnInit {
         } else {
           finalPath += path;
         }
-        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date, photo.description);
+        const photoItem = new PhotoItem(photo.idPhoto, photo.title, finalPath, photo.date, photo.description, photo.longitude, photo.latitude);
         this.photos.push(photoItem)
 
       })

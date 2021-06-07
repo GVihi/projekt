@@ -2,14 +2,13 @@ const databaseConnection = require('../util/databaseConnection');
 
 exports.savePhoto = async (photoData) => {
     return new Promise((resolve, reject) => {
-        const query = databaseConnection.query('INSERT INTO pePhotos (title, path, date, description) VALUES (?,?,now(),?)',
-            [photoData.title, photoData.path, photoData.description], (err) => {
+        const query = databaseConnection.query('INSERT INTO pePhotos (title, path, date, description, latitude, longitude) VALUES (?,?,now(),?,?,?)',
+            [photoData.title, photoData.path, photoData.description, photoData.latitude, photoData.longitude], (err) => {
                 if (err) reject(err)
             });
         resolve(query);
     });
 }
-
 
 exports.insertTag = async (tag) => {
     return new Promise((resolve, reject) => {

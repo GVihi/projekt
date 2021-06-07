@@ -1,7 +1,17 @@
-const axios = require('axios');
-const download = require('image-downloader')
+const PythonShell = require('python-shell').PythonShell;
 
+var options = {
+    scriptPath: './helpers/',
+    args: ['e.jpg']
+};
 
+PythonShell.run('getGeolocation.py', options, function (err, results) {
+    if (err)
+        throw err;
+    // Results is an array consisting of messages collected during execution
+    console.log('results: %j', parseFloat(results[0]));
+    console.log('results: %j', parseFloat(results[1]));
+});
 
 /*
 axios.get('https://pixabay.com/api/?key=21540947-a79c3cf6d3154343ac17cdeb6&image_type=photo')
