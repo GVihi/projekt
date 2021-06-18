@@ -1,0 +1,19 @@
+version: '3.3' 
+
+services:
+  api: 
+    build: api 
+    ports:
+      - "8000:8000" 
+    links:
+      - flask-server
+    volumes:
+      - ./api/uploads:/api/uploads
+
+  flask-server:
+    build: image-server 
+    ports:
+      - "3001:3001" 
+    volumes:
+      - ./api/uploads:/api/uploads
+#- api/home/api/uploads:/api/uploads
